@@ -1,0 +1,153 @@
+<html>
+
+<body>
+    <style>
+        a: link,
+        a: visited,
+        a: active {
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+        
+        a: hover {
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            text-decoration: underline;
+            font-size: 10pt;
+        }
+        
+        h1 {
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            font-size: 14pt;
+        }
+        
+        h2 {
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            font-size: 11pt;
+        }
+        
+        h3 {
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            font-size: 12pt;
+        }
+        
+        h4 {
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            font-size: 10pt;
+        }
+        
+        form,
+        body,
+        a,
+        b,
+        td,
+        table,
+        tr,
+        div,
+        p,
+        ul,
+        l {
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            font-size: 9pt;
+        }
+        
+        .error {
+            color: #ff0000;
+        }
+        
+        .passed {
+            color: #008000;
+        }
+        
+        .pending {
+            color: #0000ff;
+        }
+        
+        div {
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        td {
+            vertical-align: top;
+            padding: 5px;
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            font-size: 9pt;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f5f5f5
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            font-size: 10pt;
+        }
+        
+        div .heading {
+            color: #000000;
+            padding: 12px 12px 12px 12px;
+            font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;
+            font-size: 14pt;
+            font-weight: bold;
+        }
+    </style>
+
+    <div style="max-width:700px !important;padding:12px 12px 12px 12px;font-size: 9pt;">
+        <div style="width:600px !important;background:#FFFFE0;border: 1px solid black;line-height:20px;">
+            <div style=" color: #000000;  padding: 12px 12px 12px 12px;font-family: Verdana, Arial, Helvetica, Swiss, Sans-Serif;font-size: 14pt;font-weight: bold;">Compilation Build for #BUILD_NUMBER#: <b>#BUILD_STATUS#</b></div>
+        </div>
+        <br/><a href="#BUILD_URL#">Open Release Report in Web Access</a><br/>
+        <br/>
+
+
+
+        <table cellspacing="0" cellpadding="2">
+            <tbody>
+                <tr style="width:500px;">
+                    <td style="width:200px">Build ID: </td>
+                    <td style="width:300px"><a href="#BUILD_URL#">#BUILD_ID#</a></td>
+                </tr>
+                <tr>
+                    <td>Build Number:</td>
+                    <td>#BUILD_NUMBER#</td>
+                </tr>
+
+                <tr>
+                    <td>Repository:</td>
+                    <td>#REPOSITORY#</td>
+                </tr>
+                <tr>
+
+                    <td>Commit ID:</td>
+                    <td>#COMMIT_ID#</td>
+                </tr>
+                <tr>
+                    <td>CRM Server Version:</td>
+                    <td>#ORG_VERSION#</td>
+                </tr>
+                <tr>
+                    <td>Created by:</td>
+                    <td>#CREATED_BY#</td>
+                </tr>
+            </tbody>
+        </table> #OUTPUT#
+
+        <BR /> #TEST_RESULT_HTML#
+        <br/> #ADDITIONAL_MESSAGE#
+    </div>
+
+</body>
+
+</html>

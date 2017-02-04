@@ -1,0 +1,138 @@
+{
+    "id": "D8BB8079-3B02-4307-A8D6-ABB5C549F710",
+    "name": "SendBuildNotification",
+    "friendlyName": "Send Build Notification",
+    "description": "Send build notification email for build task",
+    "helpMarkDown": "Version: __VERSION__. [More information](http://gitub.com/deepakkamboj)",
+    "category": "Utility",
+    "author": "Deepak Kamboj",
+    "version": {
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 1
+    },
+    "visibility": [
+        "Build",
+        "Release"
+    ],
+    "demands": [],
+    "groups": [{
+            "name": "mailsettings",
+            "displayName": "Email settings",
+            "isExpanded": true
+        },
+        {
+            "name": "executionOptions",
+            "displayName": "Test Execution Options",
+            "isExpanded": false
+        }
+    ],
+    "inputs": [{
+            "name": "To",
+            "type": "string",
+            "label": "To Addresses",
+            "defaultValue": "$(Build.RequestedForEmail)",
+            "required": true,
+            "groupName": "mailsettings",
+            "helpMarkDown": "To Addresses. Separate by semicolon (;)"
+        },
+        {
+            "name": "From",
+            "type": "string",
+            "label": "From Address",
+            "defaultValue": "crmbldl@microsoft.com",
+            "required": true,
+            "groupName": "mailsettings",
+            "helpMarkDown": "From Address"
+        },
+        {
+            "name": "Subject",
+            "type": "string",
+            "label": "Mail Subject",
+            "defaultValue": "",
+            "required": false,
+            "groupName": "mailsettings",
+            "helpMarkDown": "The subject of the email"
+
+        },
+        {
+            "name": "AddAttachment",
+            "type": "boolean",
+            "label": "Add Attachment?:",
+            "defaultValue": "false",
+            "required": true,
+            "groupName": "mailsettings",
+            "helpMarkDown": "Indicate if a file will be attached to the email"
+        },
+        {
+            "name": "Attachment",
+            "type": "string",
+            "label": "Attachment (absolute path)",
+            "defaultValue": "",
+            "required": false,
+            "groupName": "mailsettings",
+            "helpMarkDown": "The absolute path to the file"
+
+        },
+        {
+            "name": "TestPlan",
+            "type": "string",
+            "label": "Test Plan ID",
+            "defaultValue": "",
+            "required": true,
+            "groupName": "executionOptions",
+            "helpMarkDown": "The absolute path to the file"
+
+        },
+        {
+            "name": "OrgVersion",
+            "type": "string",
+            "label": "CRM Server Organization Version",
+            "defaultValue": "$(OrgVersion)",
+            "required": true,
+            "groupName": "executionOptions",
+            "helpMarkDown": "CRM Server Organization Version"
+        },
+        {
+            "name": "VSOUsername",
+            "type": "string",
+            "label": "VSO Username",
+            "defaultValue": "$(VSOUsername)",
+            "required": true,
+            "groupName": "executionOptions",
+            "helpMarkDown": "Username for the VSO User"
+        },
+        {
+            "name": "VSOUserPAT",
+            "type": "string",
+            "label": "VSO User PAT",
+            "defaultValue": "$(VSOUserPAT)",
+            "required": true,
+            "groupName": "executionOptions",
+            "helpMarkDown": "PAT for the VSO User to authenticate"
+        },
+
+        {
+            "name": "Message",
+            "type": "multiLine",
+            "label": "Additional HTML Message",
+            "defaultValue": "",
+            "required": false,
+            "groupName": "executionOptions",
+            "helpMarkDown": "Additional HTML message to be sent in the email.",
+            "properties": {
+                "resizable": true,
+                "rows": "4"
+            }
+        }
+    ],
+
+    "instanceNameFormat": "Send Build Notification - $()",
+    "execution": {
+        "PowerShell": {
+            "target": "$(currentDirectory)\\SendMail.ps1",
+            "argumentFormat": "",
+            "workingDirectory": "$(currentDirectory)"
+        }
+    }
+}
